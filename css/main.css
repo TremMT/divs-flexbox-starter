@@ -97,54 +97,65 @@ textarea {
 
 
 html {
-  background-color: #440580;
-  height: 100%;
+    background-color: #440580;
+    height: 100%;
+    width: 100%;
 }
 
 body {
-  font-family: 'Source Sans Pro', sans-serif;
-  padding: 2em;
-  font-size: 1.25em;
-  height: 100%;
+    font-family: 'Figtree', sans-serif;
+    padding: 0 2em;
+    font-size: 1.25em;
+    font-weight: 300;
+    color: #fff;
+    display: flex;
+    justify-content: center;
 }
 
 .wrapper {
-  /*add display:flex and set justify-content to space-between*/
-  font-weight: 500;
-  display: flex;
-  justify-content: space-between;
-
+    max-width:1200px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
 }
 
-.div-1, .div-2, .div-3 {
-  /*give the divs a width of 30%, add display:flex, set justify-content and align-items to center*/
-  color: #fff;
-  line-height: 1.5em;
-  font-size: 1.2em;
-  background-color: #440580;
-  height: 300px;
-  width: 30%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+header,
+footer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
 }
 
-.div-1 {
-    margin-left: 30px;
-    padding: 0 35px;
+header h1 {
+    font-family: 'Kumar One', cursive;
+    font-size: 3em;
 }
 
-.div-2 {
-    border-left: #fff solid 1px;
-    border-right: #fff solid 1px;
-    padding-left: 35px;
+main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 1.4em;
+    border-bottom: #fff solid 1px;
 }
 
-.div-3 {
-    margin-right: 30px;
-    padding: 0 35px;
+p span {
+    font-family: 'Figtree', sans-serif;
+    font-weight: 700;
 }
 
+.flex-divs {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1em;
+    line-height: 1.5em;
+    border-bottom: #fff solid 1px;
+}
+
+footer {
+    border-top: #fff solid 1px;
+}
 
 /* ==========================================================================
    Helper classes
@@ -212,8 +223,10 @@ body {
 
 .clearfix:before,
 .clearfix:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
+    content: " ";
+    /* 1 */
+    display: table;
+    /* 2 */
 }
 
 .clearfix:after {
@@ -225,11 +238,28 @@ body {
    These examples override the primary ('mobile first') styles.
    Modify as content requires.
    ========================================================================== */
+@media all and (max-width: 768px) {
+    body {
+        padding: 1em;
+    }
+}
 
+@media (min-width: 1200px) {
+    .flex-divs {
+        flex-basis:30%;
+        border-bottom: none;
+    }
+
+    #div-2 p {
+        border-left: #fff solid 1px;
+        border-right: #fff solid 1px;
+        padding: 0 35px;
+    }
+}
 @media print,
-       (-webkit-min-device-pixel-ratio: 1.25),
-       (min-resolution: 1.25dppx),
-       (min-resolution: 120dpi) {
+(-webkit-min-device-pixel-ratio: 1.25),
+(min-resolution: 1.25dppx),
+(min-resolution: 120dpi) {
     /* Style adjustments for high resolution devices */
 }
 
@@ -240,11 +270,13 @@ body {
    ========================================================================== */
 
 @media print {
+
     *,
     *:before,
     *:after {
         background: transparent !important;
-        color: #000 !important; /* Black prints faster:
+        color: #000 !important;
+        /* Black prints faster:
                                    http://www.sanbeiji.com/archives/953 */
         box-shadow: none !important;
         text-shadow: none !important;
